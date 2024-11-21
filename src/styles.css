@@ -1,0 +1,222 @@
+/* Winner Board Effect */
+.winner-board {
+  border: 5px solid #f5fb51; /* Trophy-like orange border */
+  box-shadow: 0 0 20px 5px rgba(244, 255, 34, 0.7);
+  transition: all 0.3s ease-in-out;
+}
+
+/* Draw Board Effect */
+.draw-board {
+  background: rgba(2, 248, 248, 0.2); /* Light gray for draw */
+  transition: background 0.3s ease-in-out;
+}
+
+/* Reset and Base Styles */
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  font-family: "Arial", sans-serif;
+  background: linear-gradient(120deg, #33cc33, #33c4ff, #ffffff);
+  height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  color: black;
+  overflow: hidden;
+}
+
+/* Page Title */
+.game-title {
+  text-align: center;
+  font-size: 3rem;
+  font-weight: bold;
+  color: black;
+  margin-bottom: 30px;
+  text-shadow: 2px 2px 4px white;
+}
+
+/* Game Container */
+.page-container {
+  text-align: center;
+  padding: 20px;
+}
+
+.game-container {
+  display: flex;
+  gap: 50px; /* Space between board and info */
+  justify-content: center;
+  align-items: flex-start;
+}
+
+/* Game Board */
+.game-board {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  background: white;
+  padding: 25px;
+  border-radius: 15px;
+  border: 3px solid black;
+  box-shadow: 0px 8px 15px rgba(0, 0, 0, 0.2);
+}
+
+/* Game Info Sidebar */
+.game-info {
+  background: white;
+  padding: 25px;
+  border-radius: 15px;
+  border: 3px solid black;
+  box-shadow: 0px 8px 15px rgba(0, 0, 0, 0.2);
+  min-width: 240px;
+  text-align: left;
+}
+
+/* Sort Button */
+.sort-button {
+  padding: 10px 20px;
+  font-size: 1rem;
+  font-weight: bold;
+  color: #ffffff;
+  background: linear-gradient(120deg, #00aaff, #0077cc); /* Blue gradient */
+  border: 2px solid #012c57;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: all 0.2s ease-in-out;
+  width: 100%;
+}
+
+/* Hover Effect */
+.sort-button:hover {
+  transform: translateY(-3px);
+  background: linear-gradient(
+    120deg,
+    #66ccff,
+    #005599
+  ); /* Lighter blue gradient */
+}
+
+.move-list {
+  margin-top: 20px;
+  list-style: none;
+  padding: 0;
+}
+
+.move-button {
+  padding: 10px 15px;
+  font-size: 0.9rem;
+  color: black;
+  background: linear-gradient(120deg, #33cc33, #ffffff);
+  border: 2px solid black;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: all 0.2s ease-in-out;
+  width: 100%;
+  display: block;
+  text-align: center;
+}
+
+.move-button:hover {
+  background: linear-gradient(120deg, #33c4ff, #ffffff);
+}
+
+.current-move {
+  font-weight: bold;
+  margin-bottom: 10px;
+}
+
+.current-move-text {
+  color: navy;
+}
+
+/* Board Styles */
+.board-row {
+  display: flex;
+}
+
+.square {
+  background: linear-gradient(
+    135deg,
+    #88f48f,
+    #0bd30b
+  ); /* Vibrant green gradient */
+  border: 3px solid black;
+  font-size: 28px;
+  font-weight: bold;
+  color: white; /* X and O color */
+  text-shadow: 1px 1px 2px black;
+  width: 80px;
+  height: 80px;
+  margin: 5px;
+  border-radius: 10px;
+  cursor: pointer;
+  transition: all 0.3s ease-in-out;
+}
+
+/* Highlight Winning Squares */
+.square.highlight {
+  background: linear-gradient(
+    135deg,
+    #d1f502,
+    #0531d1
+  ); /* Highlight winning squares */
+  animation: highlightPulse 1s infinite;
+}
+
+@keyframes highlightPulse {
+  0% {
+    transform: scale(1);
+  }
+  50% {
+    transform: scale(1.1);
+  }
+  100% {
+    transform: scale(1);
+  }
+}
+
+/* Hover Effect */
+.square:hover {
+  transform: translateY(-5px) scale(1.05);
+  background: linear-gradient(
+    135deg,
+    #ffef00,
+    #ffd700
+  ); /* Bright yellow gradient */
+}
+
+/* Replay Button */
+.replay-button {
+  margin-top: 20px;
+  padding: 12px 20px;
+  font-size: 1rem;
+  font-weight: bold;
+  color: #ffffff;
+  background: linear-gradient(120deg, #00aaff, #001eff);
+  border: 2px solid #022c57;
+  border-radius: 10px;
+  cursor: pointer;
+  transition: all 0.3s ease-in-out;
+  box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.2);
+}
+
+.replay-button:hover {
+  transform: translateY(-5px);
+  background: linear-gradient(120deg, #66ccff, #003366);
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+  .game-container {
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .game-info {
+    margin-top: 20px;
+    text-align: center;
+  }
+}
