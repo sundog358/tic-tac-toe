@@ -6,13 +6,14 @@
 * Description:
 * This file serves as the root HTML document for the React Tic-Tac-Toe application. It provides the foundational 
 * structure and metadata for the application. React dynamically injects content into this file at runtime via the 
-* `<div id="root"></div>` container. It also defines essential meta tags for browser rendering and responsive design.
+* `<div id="root"></div>` container. It also defines essential meta tags for browser rendering, responsive design, 
+* and social media sharing.
 *
 * Purpose:
 * - To act as the static entry point for the React application.
 * - To establish the base structure and metadata for search engines and browsers.
 * - To facilitate the dynamic rendering of React components by providing the `root` container.
-* - To define viewport settings for responsive behavior on mobile and desktop devices.
+* - To enhance the application's visibility on social media platforms with Open Graph and Twitter Card metadata.
 *
 * Usage:
 * - The `index.html` file is automatically processed during the build process and serves as the foundation of the 
@@ -30,8 +31,8 @@
 * 3. **Character Encoding**:
 *    - The `<meta charset="UTF-8" />` tag ensures the document correctly displays Unicode characters, supporting 
 *      internationalization.
-* 4. **Minimalism**:
-*    - The file is intentionally minimal to facilitate fast loading and easy React integration.
+* 4. **Metadata for Social Media Sharing**:
+*    - Open Graph and Twitter Card tags enable a rich preview when sharing the application link on social platforms.
 * 5. **React Mounting**:
 *    - React's virtual DOM tree is mounted into the `<div id="root"></div>` element, which serves as the anchor point 
 *      for the application.
@@ -47,8 +48,20 @@
 *    - `<meta charset="UTF-8" />`: Specifies UTF-8 encoding, enabling the display of international characters.
 *    - `<meta name="viewport" content="width=device-width, initial-scale=1.0" />`: Ensures responsive rendering on 
 *      various screen sizes.
-*    - `<title>Document</title>`: Defines the title displayed on the browser tab and in search engine results. 
-*      **Note**: Replace "Document" with the actual application name for better SEO and user experience.
+*    - `<title>Tic Tac Toe</title>`: Defines the title displayed on the browser tab and in search engine results.
+*    - Open Graph Tags:
+*      - `<meta property="og:title" content="Tic Tac Toe Game" />`: Title for link previews on platforms like Facebook.
+*      - `<meta property="og:description" content="Play the classic Tic Tac Toe game with a modern React twist!" />`: 
+*        Description for link previews.
+*      - `<meta property="og:image" content="/tic-tac-toe.png" />`: Preview image for social sharing.
+*      - `<meta property="og:url" content="https://curious-donut-56b760.netlify.app" />`: Canonical URL of the app.
+*      - `<meta property="og:type" content="website" />`: Specifies the type of resource.
+*    - Twitter Card Tags:
+*      - `<meta name="twitter:card" content="summary_large_image" />`: Specifies the card style for Twitter.
+*      - `<meta name="twitter:title" content="Tic Tac Toe Game" />`: Title for Twitter previews.
+*      - `<meta name="twitter:description" content="Play the classic Tic Tac Toe game with a modern React twist!" />`: 
+*        Description for Twitter previews.
+*      - `<meta name="twitter:image" content="/tic-tac-toe.png" />`: Preview image for Twitter.
 * 4. **Body Section**:
 *    - `<div id="root"></div>`: This is the placeholder element where React dynamically injects the application. It 
 *      acts as the anchor point for the entire React component tree.
@@ -69,8 +82,8 @@
 * - To modify the dynamic content or logic, update the React application (e.g., `App.js` or other components), not 
 *   this file.
 * - Ensure that the `root` div remains intact and unaltered, as it is critical for React functionality.
-* - If additional global scripts are required (e.g., analytics), include them at the end of the `<head>` section 
-*   while ensuring they do not conflict with React or other dependencies.
+* - Validate metadata using tools like Facebook Debugger (https://developers.facebook.com/tools/debug/) and Twitter 
+*   Card Validator (https://cards-dev.twitter.com/validator).
 *********************************************************************************************************************
 -->
 
@@ -79,7 +92,29 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Document</title>
+    <title>Tic Tac Toe</title>
+
+    <!-- Open Graph Meta Tags -->
+    <meta property="og:title" content="Tic Tac Toe Game" />
+    <meta
+      property="og:description"
+      content="Play the classic Tic Tac Toe game with a modern React twist!"
+    />
+    <meta property="og:image" content="/tic-tac-toe.png" />
+    <meta
+      property="og:url"
+      content="https://curious-donut-56b760.netlify.app"
+    />
+    <meta property="og:type" content="website" />
+
+    <!-- Twitter Card Meta Tags -->
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:title" content="Tic Tac Toe Game" />
+    <meta
+      name="twitter:description"
+      content="Play the classic Tic Tac Toe game with a modern React twist!"
+    />
+    <meta name="twitter:image" content="/tic-tac-toe.png" />
   </head>
   <body>
     <div id="root"></div>
