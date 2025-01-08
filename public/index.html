@@ -1,72 +1,79 @@
 <!--
-******************************************************
-* File Name: index.js
+*********************************************************************************************************************
+* File Name: index.html
 *
 * Description:
-* This file serves as the entry point for the React Tic-Tac-Toe
-* application. It initializes the application by rendering the main `App`
-* component into the root DOM node. It uses React's `StrictMode` to highlight
-* potential problems and enforce best practices.
+* This file serves as the foundational HTML document for the Tic-Tac-Toe React application. It is the primary entry 
+* point for the web application and is responsible for providing the container for the React component tree and 
+* metadata for search engines and social media platforms.
 *
 * Purpose:
-* - To bootstrap the React application and render it into the browser.
-* - To set up the application structure and link core styles.
-* - To facilitate integration of the React component tree with the HTML DOM.
-* - To ensure adherence to React's strict coding standards via `StrictMode`.
+* - To act as the root HTML document for rendering the React application.
+* - To provide meta information for search engines, social media sharing, and web browsers.
+* - To establish the viewport settings for responsive design.
+* - To define the title and Open Graph/Twitter meta tags for link previews on social platforms.
 *
 * Usage:
-* - This file is automatically invoked by the React build process.
-* - The `App` component imported here represents the main application.
-* - Modify `App` for application logic and content; `index.js` remains minimal.
-* - To run the app, execute `npm start` or the equivalent start command.
+* - This file is used automatically by React as the main HTML template during the build process.
+* - Place static assets such as images or favicon files in the `public` directory to ensure they are available 
+*   at runtime.
+* - Edit this file to update metadata, include global scripts, or configure social media previews.
+* - Deploy the app by building it with `npm run build` and serving the `build` folder.
 *
 * Key Points, Ideas, and Concepts:
-* - **Entry Point**: `index.js` is the starting point for the React application.
-* - **StrictMode**: A development tool that ensures adherence to React best practices.
-* - **Component Rendering**: Uses `createRoot` to render the React component tree.
-* - **Styling**: Links the global stylesheet `styles.css` to the application.
-* - **HTML DOM Integration**: Anchors the React component tree to the DOM via the `root` element.
-* - **Modular Design**: Delegates core functionality to the `App` component.
+* 1. **Static Template**:
+*    - The HTML file acts as a static template with a dynamic React application injected into the `<div id="root"></div>`.
+* 2. **Meta Tags for Social Sharing**:
+*    - Open Graph and Twitter Card tags enhance link sharing by providing titles, descriptions, and preview images.
+* 3. **Responsive Design**:
+*    - The `<meta name="viewport" content="width=device-width, initial-scale=1.0" />` ensures the application is 
+*      mobile-friendly and scales correctly on all devices.
+* 4. **Root Container**:
+*    - The `<div id="root"></div>` is the anchor point for React's virtual DOM tree.
+* 5. **Environment Variable Integration**:
+*    - `%PUBLIC_URL%` placeholders allow for dynamic resolution of asset URLs in production builds.
 *
 * Key Technical Code Components:
-* 1. **React Imports**:
-*    - `StrictMode`: A wrapper component for identifying potential issues.
-*    - `createRoot`: The modern API for rendering the React tree into the DOM.
-*
-* 2. **Global Styles**:
-*    - `./styles.css`: Provides styling for the entire application.
-*
-* 3. **App Component**:
-*    - Imported from `./App`.
-*    - Serves as the root of the React component hierarchy.
-*
-* 4. **DOM Integration**:
-*    - Uses `document.getElementById("root")` to locate the root HTML element.
-*    - Renders the React tree inside the DOM's `root` element.
+* 1. **Document Type Definition (<!DOCTYPE html>)**:
+*    - Specifies the HTML5 standard for the document, ensuring compatibility and consistent rendering across browsers.
+* 2. **Language Attribute**:
+*    - `<html lang="en">` sets the language of the document to English for accessibility and SEO purposes.
+* 3. **Meta Tags**:
+*    - `<meta charset="UTF-8">`: Defines character encoding for the document, supporting international text.
+*    - `<meta name="viewport" content="width=device-width, initial-scale=1.0">`: Enables responsive design for devices.
+* 4. **Title Tag**:
+*    - `<title>Tic Tac Toe</title>`: Specifies the title displayed on the browser tab and used in search engine results.
+* 5. **Open Graph Tags**:
+*    - `<meta property="og:title" content="Tic Tac Toe Game" />`: Defines the title for Facebook and other platforms.
+*    - `<meta property="og:description" content="Play the classic Tic Tac Toe game with a modern React twist!" />`: 
+*      Describes the app for link previews.
+*    - `<meta property="og:image" content="%PUBLIC_URL%/tic-tac-toe.png" />`: Specifies the preview image for link sharing.
+*    - `<meta property="og:url" content="https://curious-donut-56b760.netlify.app/">`: Defines the canonical URL of the app.
+*    - `<meta property="og:type" content="website">`: Identifies the type of content being shared.
+* 6. **Twitter Card Tags**:
+*    - `<meta name="twitter:card" content="summary_large_image" />`: Configures the format of the Twitter card.
+*    - `<meta name="twitter:title" content="Tic Tac Toe Game" />`: Sets the Twitter card title.
+*    - `<meta name="twitter:description" content="Play the classic Tic Tac Toe game with a modern React twist!" />`: 
+*      Provides a description for Twitter.
+*    - `<meta name="twitter:image" content="%PUBLIC_URL%/tic-tac-toe.png" />`: Specifies the Twitter card image.
+* 7. **Root Element**:
+*    - `<div id="root"></div>`: Serves as the mounting point for the React component tree. All React-rendered content 
+*      will appear here.
 *
 * Implementation Details:
-* - **React.StrictMode**:
-*   - Ensures the app adheres to React best practices and highlights potential issues.
-*   - Affects only development builds, not production builds.
-*
-* - **createRoot**:
-*   - Initializes the root React tree in the `root` DOM element.
-*   - Replaces the legacy `ReactDOM.render()` API.
-*
-* - **Component Rendering**:
-*   - The `App` component is wrapped in `StrictMode` for enhanced debugging.
-*   - The `App` component serves as the entry point for further development.
+* - This file should remain minimal to facilitate easy updates and scalability.
+* - The Open Graph and Twitter meta tags dynamically pull images and metadata from the public folder at runtime.
+* - All links and assets must be accessible via relative paths or the `%PUBLIC_URL%` environment variable.
+* - Avoid adding inline styles or scripts to maintain separation of concerns and adhere to modern web development 
+*   practices.
 *
 * Notes:
-* - Ensure the `root` element exists in the HTML file (usually in `public/index.html`).
-* - Always maintain minimal logic in `index.js` for clarity and separation of concerns.
-* - The file serves as a "glue" between the React app and the HTML DOM.
-*
-* Dev Team Tips:
-* - Use `StrictMode` to catch React lifecycle issues during development.
-* - Centralize global styles in `styles.css` for consistency across the app.
-* - Avoid adding non-essential logic to `index.js`—focus on app initialization.
-******************************************************
+* - Always validate the Open Graph and Twitter meta tags using debugging tools before deployment:
+*   - Facebook Sharing Debugger: https://developers.facebook.com/tools/debug/
+*   - Twitter Card Validator: https://cards-dev.twitter.com/validator
+* - Any custom scripts or global settings should be added here, ideally before the closing `</head>` tag.
+* - Ensure the `<div id="root"></div>` remains unchanged, as it is critical for React to mount the application.
+*********************************************************************************************************************
 -->
 
 <!DOCTYPE html>
@@ -74,7 +81,29 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Document</title>
+    <title>Tic Tac Toe</title>
+
+    <!-- Open Graph Meta Tags -->
+    <meta property="og:title" content="Tic Tac Toe Game" />
+    <meta
+      property="og:description"
+      content="Play the classic Tic Tac Toe game with a modern React twist!"
+    />
+    <meta property="og:image" content="%PUBLIC_URL%/tic-tac-toe.png" />
+    <meta
+      property="og:url"
+      content="https://curious-donut-56b760.netlify.app/"
+    />
+    <meta property="og:type" content="website" />
+
+    <!-- Twitter Card Meta Tags -->
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:title" content="Tic Tac Toe Game" />
+    <meta
+      name="twitter:description"
+      content="Play the classic Tic Tac Toe game with a modern React twist!"
+    />
+    <meta name="twitter:image" content="%PUBLIC_URL%/tic-tac-toe.png" />
   </head>
   <body>
     <div id="root"></div>
